@@ -1,0 +1,33 @@
+{% load static %}
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <meta http-equiv="X-UA-Compatible" content="ie=edge">
+   <title>Micheal Adisa - Blog</title>
+   <link rel="stylesheet" href="{% static 'css/style.css' %}">
+ </head>
+ <body>
+    <header>
+        <h1>
+            <a class="links logo" href="{% url 'articles:home' %}">
+                Featured Articles
+            </a>
+        </h1>
+    </header>
+    <div class="container">
+    <p class="back">
+        <a href="{% url 'articles:home' %}">
+            < Back
+        </a>
+    </p>
+    {% block content %}
+        <div class="details">
+            <h2>{{ article.title }}</h2>
+            <p>{{ article.body }}</p>
+        </div>
+    {% endblock content %}
+    </div>
+ </body>
+ </html>
